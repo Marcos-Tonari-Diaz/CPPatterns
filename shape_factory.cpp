@@ -7,6 +7,7 @@ using namespace std;
 class Shape{
 	public:
 		string shape_name = "Shape";
+		Shape(string name): shape_name{name}{};
 		virtual void drawShape() = 0;
 		string getName(){return shape_name;};
 };
@@ -14,7 +15,7 @@ class Shape{
 class Square: public Shape{
 	int lenght;
 	public:
-		Square(int lenght): lenght{lenght}{shape_name = "Square";};
+		Square(int lenght): Shape{"Square"}, lenght{lenght}{};
 		void drawShape() override {
 			cout << "Square, area: " << lenght*lenght << endl;	
 		}
@@ -23,7 +24,7 @@ class Square: public Shape{
 class Circle: public Shape{
 	int radius;
 	public:
-		Circle(int radius): radius{radius}{shape_name = "Circle";};
+		Circle(int radius): Shape{"Circle"}, radius{radius}{};
 		void drawShape() override {
 			cout << "Circle, area: " << M_PI*radius*radius << endl;	
 		}
