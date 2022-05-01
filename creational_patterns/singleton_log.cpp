@@ -8,6 +8,7 @@
 
 using namespace std;
 
+// Singleton Pattern
 class SingletonLog {
   static SingletonLog* singleton_log;
   ofstream log_file;
