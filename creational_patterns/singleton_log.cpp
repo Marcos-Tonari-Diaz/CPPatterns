@@ -31,6 +31,10 @@ class SingletonLog {
     log_file << logFormat("LOG START") << endl;
   }
 
+  ~SingletonLog(){
+    log_file.close();
+  }
+
  public:
   static SingletonLog* getLog() {
     if (singleton_log == nullptr) singleton_log = new SingletonLog("ex.log");
